@@ -1,0 +1,1 @@
+/usr/lib/ccache/c++ -fPIC  -g -O0 -shared -Wl,-soname,libgmock_main.so -o ../lib/libgmock_main.so CMakeFiles/gmock_main.dir/src/gmock_main.cc.o  -Wl,-rpath,/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/gtest/lib ../lib/libgmock.so ../lib/libgtest.so -lpthread 

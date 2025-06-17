@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/devel/setup.sh
