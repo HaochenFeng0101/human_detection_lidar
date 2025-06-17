@@ -1,6 +1,6 @@
 /pcd
 /rosbag
 /build
-
+/ground_segmentation/build
 
 *.pcd
