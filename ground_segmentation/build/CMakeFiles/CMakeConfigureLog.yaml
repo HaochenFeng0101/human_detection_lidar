@@ -39,8 +39,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -48,13 +48,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0aecc/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_0aecc.dir/build.make CMakeFiles/cmTC_0aecc.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o'
-        Building CXX object CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/lib/ccache/c++   -v -o CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_54ee5/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_54ee5.dir/build.make CMakeFiles/cmTC_54ee5.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8'
+        Building CXX object CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/lib/ccache/c++   -v -o CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa
@@ -95,9 +95,9 @@ events:
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
         COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_b76cc.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        Linking CXX executable cmTC_0aecc
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0aecc.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -v CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0aecc 
+        Linking CXX executable cmTC_54ee5
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54ee5.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -v CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_54ee5 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper
@@ -110,10 +110,10 @@ events:
         gcc version 10.5.0 (Ubuntu 10.5.0-1ubuntu1~20.04) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0aecc' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVq9mlq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0aecc /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0aecc' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_54ee5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNMo3Y8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_54ee5 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_54ee5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8'
         
       exitCode: 0
   -
@@ -153,13 +153,13 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o']
+        ignore line: [Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0aecc/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_0aecc.dir/build.make CMakeFiles/cmTC_0aecc.dir/build]
-        ignore line: [make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-hpf15o']
-        ignore line: [Building CXX object CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/lib/ccache/c++   -v -o CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_54ee5/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_54ee5.dir/build.make CMakeFiles/cmTC_54ee5.dir/build]
+        ignore line: [make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YHSRh8']
+        ignore line: [Building CXX object CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/lib/ccache/c++   -v -o CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa]
@@ -200,9 +200,9 @@ events:
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
         ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_b76cc.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking CXX executable cmTC_0aecc]
-        ignore line: [/usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0aecc.dir/link.txt --verbose=1]
-        ignore line: [/usr/lib/ccache/c++  -v CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_0aecc ]
+        ignore line: [Linking CXX executable cmTC_54ee5]
+        ignore line: [/usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54ee5.dir/link.txt --verbose=1]
+        ignore line: [/usr/lib/ccache/c++  -v CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_54ee5 ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper]
@@ -215,13 +215,13 @@ events:
         ignore line: [gcc version 10.5.0 (Ubuntu 10.5.0-1ubuntu1~20.04) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0aecc' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVq9mlq.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0aecc /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_54ee5' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccNMo3Y8.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_54ee5 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccVq9mlq.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccNMo3Y8.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -239,7 +239,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_0aecc] ==> ignore
+          arg [cmTC_54ee5] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o]
@@ -251,7 +251,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..]
-          arg [CMakeFiles/cmTC_0aecc.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_54ee5.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -291,8 +291,8 @@ events:
       - "/usr/local/dc/ros/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:8 (find_package)"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -300,25 +300,25 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d0880/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_d0880.dir/build.make CMakeFiles/cmTC_d0880.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q'
-        Building CXX object CMakeFiles/cmTC_d0880.dir/src.cxx.o
-        /usr/lib/ccache/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -g -O0  -o CMakeFiles/cmTC_d0880.dir/src.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q/src.cxx
-        Linking CXX executable cmTC_d0880
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0880.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0  CMakeFiles/cmTC_d0880.dir/src.cxx.o -o cmTC_d0880 
-        /usr/bin/ld: CMakeFiles/cmTC_d0880.dir/src.cxx.o: in function `main':
-        /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q/src.cxx:11: undefined reference to `pthread_create'
-        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q/src.cxx:12: undefined reference to `pthread_detach'
-        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q/src.cxx:13: undefined reference to `pthread_cancel'
-        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q/src.cxx:14: undefined reference to `pthread_join'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_72ca3/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_72ca3.dir/build.make CMakeFiles/cmTC_72ca3.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5'
+        Building CXX object CMakeFiles/cmTC_72ca3.dir/src.cxx.o
+        /usr/lib/ccache/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -g -O0  -o CMakeFiles/cmTC_72ca3.dir/src.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5/src.cxx
+        Linking CXX executable cmTC_72ca3
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_72ca3.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0  CMakeFiles/cmTC_72ca3.dir/src.cxx.o -o cmTC_72ca3 
+        /usr/bin/ld: CMakeFiles/cmTC_72ca3.dir/src.cxx.o: in function `main':
+        /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5/src.cxx:11: undefined reference to `pthread_create'
+        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5/src.cxx:12: undefined reference to `pthread_detach'
+        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5/src.cxx:13: undefined reference to `pthread_cancel'
+        /usr/bin/ld: /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5/src.cxx:14: undefined reference to `pthread_join'
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_d0880.dir/build.make:99: cmTC_d0880] Error 1
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-DAj92q'
-        make: *** [Makefile:127: cmTC_d0880/fast] Error 2
+        make[1]: *** [CMakeFiles/cmTC_72ca3.dir/build.make:99: cmTC_72ca3] Error 1
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rZZzJ5'
+        make: *** [Makefile:127: cmTC_72ca3/fast] Error 2
         
       exitCode: 2
   -
@@ -333,8 +333,8 @@ events:
       - "/usr/local/dc/ros/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:8 (find_package)"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -342,21 +342,21 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a6cf0/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_a6cf0.dir/build.make CMakeFiles/cmTC_a6cf0.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn'
-        Building CXX object CMakeFiles/cmTC_a6cf0.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_a6cf0.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_a6cf0
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6cf0.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_a6cf0.dir/CheckFunctionExists.cxx.o -o cmTC_a6cf0  -lpthreads 
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c356c/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_c356c.dir/build.make CMakeFiles/cmTC_c356c.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46'
+        Building CXX object CMakeFiles/cmTC_c356c.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_c356c.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_c356c
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c356c.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_c356c.dir/CheckFunctionExists.cxx.o -o cmTC_c356c  -lpthreads 
         /usr/bin/ld: cannot find -lpthreads
         collect2: error: ld returned 1 exit status
-        make[1]: *** [CMakeFiles/cmTC_a6cf0.dir/build.make:99: cmTC_a6cf0] Error 1
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SbFIAn'
-        make: *** [Makefile:127: cmTC_a6cf0/fast] Error 2
+        make[1]: *** [CMakeFiles/cmTC_c356c.dir/build.make:99: cmTC_c356c] Error 1
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RI9X46'
+        make: *** [Makefile:127: cmTC_c356c/fast] Error 2
         
       exitCode: 2
   -
@@ -371,8 +371,8 @@ events:
       - "/usr/local/dc/ros/share/catkin/cmake/catkinConfig.cmake:20 (include)"
       - "CMakeLists.txt:8 (find_package)"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -380,17 +380,17 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7be38/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_7be38.dir/build.make CMakeFiles/cmTC_7be38.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq'
-        Building CXX object CMakeFiles/cmTC_7be38.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_7be38.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_7be38
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7be38.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_7be38.dir/CheckFunctionExists.cxx.o -o cmTC_7be38  -lpthread 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ldBpGq'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_47ce5/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_47ce5.dir/build.make CMakeFiles/cmTC_47ce5.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7'
+        Building CXX object CMakeFiles/cmTC_47ce5.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_47ce5.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_47ce5
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_47ce5.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_47ce5.dir/CheckFunctionExists.cxx.o -o cmTC_47ce5  -lpthread 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-zl5Me7'
         
       exitCode: 0
   -
@@ -424,21 +424,21 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_52310/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_52310.dir/build.make CMakeFiles/cmTC_52310.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp'
-        Building C object CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o
-        /usr/lib/ccache/cc   -v -o CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6606d/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_6606d.dir/build.make CMakeFiles/cmTC_6606d.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5'
+        Building C object CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o
+        /usr/lib/ccache/cc   -v -o CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCCompilerABI.c
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa
@@ -475,9 +475,9 @@ events:
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
         COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_24b2b.dir/CMakeCCompilerABI.c.o' '-mtune=generic' '-march=x86-64'
-        Linking C executable cmTC_52310
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52310.dir/link.txt --verbose=1
-        /usr/lib/ccache/cc  -v -rdynamic CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -o cmTC_52310 
+        Linking C executable cmTC_6606d
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6606d.dir/link.txt --verbose=1
+        /usr/lib/ccache/cc  -v -rdynamic CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -o cmTC_6606d 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/cc
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper
@@ -490,10 +490,10 @@ events:
         gcc version 10.5.0 (Ubuntu 10.5.0-1ubuntu1~20.04) 
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_52310' '-mtune=generic' '-march=x86-64'
-         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEVaJ0c.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52310 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
-        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_52310' '-mtune=generic' '-march=x86-64'
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp'
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6606d' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAMVCBP.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6606d /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6606d' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5'
         
       exitCode: 0
   -
@@ -527,13 +527,13 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp']
+        ignore line: [Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_52310/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_52310.dir/build.make CMakeFiles/cmTC_52310.dir/build]
-        ignore line: [make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-ETmFjp']
-        ignore line: [Building C object CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/usr/lib/ccache/cc   -v -o CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6606d/fast]
+        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_6606d.dir/build.make CMakeFiles/cmTC_6606d.dir/build]
+        ignore line: [make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-rGCBJ5']
+        ignore line: [Building C object CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/lib/ccache/cc   -v -o CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -c /usr/local/dc/cmake/share/cmake-3.27/Modules/CMakeCCompilerABI.c]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa]
@@ -570,9 +570,9 @@ events:
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
         ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_24b2b.dir/CMakeCCompilerABI.c.o' '-mtune=generic' '-march=x86-64']
-        ignore line: [Linking C executable cmTC_52310]
-        ignore line: [/usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52310.dir/link.txt --verbose=1]
-        ignore line: [/usr/lib/ccache/cc  -v -rdynamic CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -o cmTC_52310 ]
+        ignore line: [Linking C executable cmTC_6606d]
+        ignore line: [/usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6606d.dir/link.txt --verbose=1]
+        ignore line: [/usr/lib/ccache/cc  -v -rdynamic CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -o cmTC_6606d ]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/cc]
         ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper]
@@ -585,13 +585,13 @@ events:
         ignore line: [gcc version 10.5.0 (Ubuntu 10.5.0-1ubuntu1~20.04) ]
         ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
         ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_52310' '-mtune=generic' '-march=x86-64']
-        link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccEVaJ0c.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_52310 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_6606d' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAMVCBP.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_6606d /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccEVaJ0c.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccAMVCBP.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -610,7 +610,7 @@ events:
           arg [-znow] ==> ignore
           arg [-zrelro] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_52310] ==> ignore
+          arg [cmTC_6606d] ==> ignore
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o]
           arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o]
@@ -622,7 +622,7 @@ events:
           arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
           arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
           arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..]
-          arg [CMakeFiles/cmTC_52310.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_6606d.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -663,12 +663,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -677,17 +677,17 @@ events:
       variable: "X11_LIB_X11_SOLO"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_21d09/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_21d09.dir/build.make CMakeFiles/cmTC_21d09.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan'
-        Building CXX object CMakeFiles/cmTC_21d09.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_21d09.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_21d09
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_21d09.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_21d09.dir/CheckFunctionExists.cxx.o -o cmTC_21d09  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jdyGan'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9e1e2/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_9e1e2.dir/build.make CMakeFiles/cmTC_9e1e2.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4'
+        Building CXX object CMakeFiles/cmTC_9e1e2.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_9e1e2.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_9e1e2
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9e1e2.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_9e1e2.dir/CheckFunctionExists.cxx.o -o cmTC_9e1e2  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nN9XE4'
         
       exitCode: 0
   -
@@ -700,12 +700,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for gethostbyname"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -715,17 +715,17 @@ events:
       variable: "CMAKE_HAVE_GETHOSTBYNAME"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_613df/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_613df.dir/build.make CMakeFiles/cmTC_613df.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon'
-        Building CXX object CMakeFiles/cmTC_613df.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=gethostbyname -std=gnu++17 -o CMakeFiles/cmTC_613df.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_613df
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_613df.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_613df.dir/CheckFunctionExists.cxx.o -o cmTC_613df 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-dVwLon'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f15d2/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_f15d2.dir/build.make CMakeFiles/cmTC_f15d2.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5'
+        Building CXX object CMakeFiles/cmTC_f15d2.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=gethostbyname -std=gnu++17 -o CMakeFiles/cmTC_f15d2.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_f15d2
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f15d2.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_f15d2.dir/CheckFunctionExists.cxx.o -o cmTC_f15d2 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-eILbQ5'
         
       exitCode: 0
   -
@@ -738,12 +738,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for connect"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -753,17 +753,17 @@ events:
       variable: "CMAKE_HAVE_CONNECT"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4a237/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_4a237.dir/build.make CMakeFiles/cmTC_4a237.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m'
-        Building CXX object CMakeFiles/cmTC_4a237.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=connect -std=gnu++17 -o CMakeFiles/cmTC_4a237.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_4a237
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4a237.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_4a237.dir/CheckFunctionExists.cxx.o -o cmTC_4a237 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-jLFL6m'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ea502/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ea502.dir/build.make CMakeFiles/cmTC_ea502.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127'
+        Building CXX object CMakeFiles/cmTC_ea502.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=connect -std=gnu++17 -o CMakeFiles/cmTC_ea502.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_ea502
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea502.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_ea502.dir/CheckFunctionExists.cxx.o -o cmTC_ea502 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-cFT127'
         
       exitCode: 0
   -
@@ -776,12 +776,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for remove"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -791,17 +791,17 @@ events:
       variable: "CMAKE_HAVE_REMOVE"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7b74c/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_7b74c.dir/build.make CMakeFiles/cmTC_7b74c.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq'
-        Building CXX object CMakeFiles/cmTC_7b74c.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=remove -std=gnu++17 -o CMakeFiles/cmTC_7b74c.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_7b74c
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7b74c.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_7b74c.dir/CheckFunctionExists.cxx.o -o cmTC_7b74c 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-huMupq'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_619ad/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_619ad.dir/build.make CMakeFiles/cmTC_619ad.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7'
+        Building CXX object CMakeFiles/cmTC_619ad.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=remove -std=gnu++17 -o CMakeFiles/cmTC_619ad.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_619ad
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_619ad.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_619ad.dir/CheckFunctionExists.cxx.o -o cmTC_619ad 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-SW1ZA7'
         
       exitCode: 0
   -
@@ -814,12 +814,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for shmat"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -829,17 +829,17 @@ events:
       variable: "CMAKE_HAVE_SHMAT"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_370c6/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_370c6.dir/build.make CMakeFiles/cmTC_370c6.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn'
-        Building CXX object CMakeFiles/cmTC_370c6.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=shmat -std=gnu++17 -o CMakeFiles/cmTC_370c6.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_370c6
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_370c6.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_370c6.dir/CheckFunctionExists.cxx.o -o cmTC_370c6 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-nkpgYn'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e0ea9/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_e0ea9.dir/build.make CMakeFiles/cmTC_e0ea9.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5'
+        Building CXX object CMakeFiles/cmTC_e0ea9.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=shmat -std=gnu++17 -o CMakeFiles/cmTC_e0ea9.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_e0ea9
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0ea9.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_e0ea9.dir/CheckFunctionExists.cxx.o -o cmTC_e0ea9 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-RXnBK5'
         
       exitCode: 0
   -
@@ -852,12 +852,12 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:267 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:316 (find_VTK)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     checks:
       - "Looking for IceConnectionNumber in ICE"
     directories:
-      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn"
-      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn"
+      source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8"
+      binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8"
     cmakeVariables:
       CMAKE_CXX_FLAGS: " -g -O0"
       CMAKE_EXE_LINKER_FLAGS: ""
@@ -866,17 +866,17 @@ events:
       variable: "CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER"
       cached: true
       stdout: |
-        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn'
+        Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_35271/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_35271.dir/build.make CMakeFiles/cmTC_35271.dir/build
-        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn'
-        Building CXX object CMakeFiles/cmTC_35271.dir/CheckFunctionExists.cxx.o
-        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_35271.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn/CheckFunctionExists.cxx
-        Linking CXX executable cmTC_35271
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35271.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_35271.dir/CheckFunctionExists.cxx.o -o cmTC_35271  -lICE 
-        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-YTSnVn'
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b9d83/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_b9d83.dir/build.make CMakeFiles/cmTC_b9d83.dir/build
+        make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8'
+        Building CXX object CMakeFiles/cmTC_b9d83.dir/CheckFunctionExists.cxx.o
+        /usr/lib/ccache/c++   -g -O0 -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_b9d83.dir/CheckFunctionExists.cxx.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8/CheckFunctionExists.cxx
+        Linking CXX executable cmTC_b9d83
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9d83.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_b9d83.dir/CheckFunctionExists.cxx.o -o cmTC_b9d83  -lICE 
+        make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeScratch/TryCompile-BEuCH8'
         
       exitCode: 0
   -
@@ -886,7 +886,7 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/Modules/FindOpenMP.cmake:451 (_OPENMP_GET_FLAGS)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:328 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     directories:
       source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp"
       binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp"
@@ -901,11 +901,11 @@ events:
       stdout: |
         Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9d8cc/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_9d8cc.dir/build.make CMakeFiles/cmTC_9d8cc.dir/build
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ec782/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_ec782.dir/build.make CMakeFiles/cmTC_ec782.dir/build
         make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
-        Building CXX object CMakeFiles/cmTC_9d8cc.dir/OpenMPTryFlag.cpp.o
-        /usr/lib/ccache/c++   -g -O0 -fopenmp -v -std=gnu++17 -o CMakeFiles/cmTC_9d8cc.dir/OpenMPTryFlag.cpp.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+        Building CXX object CMakeFiles/cmTC_ec782.dir/OpenMPTryFlag.cpp.o
+        /usr/lib/ccache/c++   -g -O0 -fopenmp -v -std=gnu++17 -o CMakeFiles/cmTC_ec782.dir/OpenMPTryFlag.cpp.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa:hsa
@@ -946,9 +946,9 @@ events:
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
         COLLECT_GCC_OPTIONS='-g' '-O0' '-fopenmp' '-v' '-std=gnu++17' '-c' '-o' 'CMakeFiles/cmTC_9d8cc.dir/OpenMPTryFlag.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
-        Linking CXX executable cmTC_9d8cc
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d8cc.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -fopenmp -v CMakeFiles/cmTC_9d8cc.dir/OpenMPTryFlag.cpp.o -o cmTC_9d8cc  -v 
+        Linking CXX executable cmTC_ec782
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec782.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -fopenmp -v CMakeFiles/cmTC_ec782.dir/OpenMPTryFlag.cpp.o -o cmTC_ec782  -v 
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
         COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper
@@ -962,9 +962,9 @@ events:
         COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
         LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
         Reading specs from /usr/lib/gcc/x86_64-linux-gnu/10/libgomp.spec
-        COLLECT_GCC_OPTIONS='-g' '-O0' '-fopenmp' '-v' '-o' 'cmTC_9d8cc' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
-         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyUIhjo.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_9d8cc /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o /usr/lib/gcc/x86_64-linux-gnu/10/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_9d8cc.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o /usr/lib/gcc/x86_64-linux-gnu/10/crtoffloadend.o
-        COLLECT_GCC_OPTIONS='-g' '-O0' '-fopenmp' '-v' '-o' 'cmTC_9d8cc' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+        COLLECT_GCC_OPTIONS='-g' '-O0' '-fopenmp' '-v' '-o' 'cmTC_ec782' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
+         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLw3Xlf.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ec782 /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o /usr/lib/gcc/x86_64-linux-gnu/10/crtoffloadbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_ec782.dir/OpenMPTryFlag.cpp.o -lstdc++ -lm -lgomp -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o /usr/lib/gcc/x86_64-linux-gnu/10/crtoffloadend.o
+        COLLECT_GCC_OPTIONS='-g' '-O0' '-fopenmp' '-v' '-o' 'cmTC_ec782' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-pthread'
         make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
         
       exitCode: 0
@@ -975,7 +975,7 @@ events:
       - "/usr/local/dc/pcl/share/pcl-1.14/Modules/FindOpenMP.cmake:514 (_OPENMP_GET_SPEC_DATE)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:328 (find_package)"
       - "/usr/local/dc/pcl/share/pcl-1.14/PCLConfig.cmake:556 (find_external_library)"
-      - "CMakeLists.txt:26 (find_package)"
+      - "CMakeLists.txt:30 (find_package)"
     directories:
       source: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp"
       binary: "/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp"
@@ -990,14 +990,14 @@ events:
       stdout: |
         Change Dir: '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a41df/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_a41df.dir/build.make CMakeFiles/cmTC_a41df.dir/build
+        Run Build Command(s): /usr/local/dc/cmake/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_7cfc1/fast
+        /usr/bin/make  -f CMakeFiles/cmTC_7cfc1.dir/build.make CMakeFiles/cmTC_7cfc1.dir/build
         make[1]: Entering directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
-        Building CXX object CMakeFiles/cmTC_a41df.dir/OpenMPCheckVersion.cpp.o
-        /usr/lib/ccache/c++   -g -O0 -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_a41df.dir/OpenMPCheckVersion.cpp.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
-        Linking CXX executable cmTC_a41df
-        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a41df.dir/link.txt --verbose=1
-        /usr/lib/ccache/c++  -g -O0 -fopenmp CMakeFiles/cmTC_a41df.dir/OpenMPCheckVersion.cpp.o -o cmTC_a41df 
+        Building CXX object CMakeFiles/cmTC_7cfc1.dir/OpenMPCheckVersion.cpp.o
+        /usr/lib/ccache/c++   -g -O0 -fopenmp -std=gnu++17 -o CMakeFiles/cmTC_7cfc1.dir/OpenMPCheckVersion.cpp.o -c /home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/FindOpenMP/OpenMPCheckVersion.cpp
+        Linking CXX executable cmTC_7cfc1
+        /usr/local/dc/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7cfc1.dir/link.txt --verbose=1
+        /usr/lib/ccache/c++  -g -O0 -fopenmp CMakeFiles/cmTC_7cfc1.dir/OpenMPCheckVersion.cpp.o -o cmTC_7cfc1 
         make[1]: Leaving directory '/home/dc/dconstruct/dynamic_detection/ground_segmentation/build/CMakeFiles/CMakeTmp'
         
       exitCode: 0

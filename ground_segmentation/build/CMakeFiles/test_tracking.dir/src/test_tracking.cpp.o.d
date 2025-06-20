@@ -736,6 +736,28 @@ CMakeFiles/test_tracking.dir/src/test_tracking.cpp.o: \
  /usr/local/dc/Eigen3/include/eigen3/Eigen/src/Eigenvalues/GeneralizedEigenSolver.h \
  /usr/local/dc/Eigen3/include/eigen3/Eigen/src/Eigenvalues/RealQZ.h \
  /usr/local/dc/Eigen3/include/eigen3/Eigen/src/Eigenvalues/MatrixBaseEigenvalues.h \
+ /usr/local/dc/include/spdlog/spdlog.h \
+ /usr/local/dc/include/spdlog/common.h \
+ /usr/local/dc/include/spdlog/details/null_mutex.h \
+ /usr/local/dc/include/spdlog/tweakme.h /usr/include/c++/10/chrono \
+ /usr/include/c++/10/ratio /usr/include/c++/10/ctime \
+ /usr/include/c++/10/bits/parse_numbers.h \
+ /usr/local/dc/include/spdlog/fmt/fmt.h /usr/local/dc/include/fmt/core.h \
+ /usr/local/dc/include/fmt/format.h /usr/local/dc/include/fmt/base.h \
+ /usr/local/dc/include/fmt/format.h \
+ /usr/local/dc/include/spdlog/details/registry.h \
+ /usr/local/dc/include/spdlog/details/periodic_worker.h \
+ /usr/include/c++/10/condition_variable \
+ /usr/include/c++/10/bits/std_mutex.h \
+ /usr/include/c++/10/bits/unique_lock.h /usr/include/c++/10/mutex \
+ /usr/include/c++/10/thread \
+ /usr/local/dc/include/spdlog/details/synchronous_factory.h \
+ /usr/local/dc/include/spdlog/logger.h \
+ /usr/local/dc/include/spdlog/details/backtracer.h \
+ /usr/local/dc/include/spdlog/details/circular_q.h \
+ /usr/local/dc/include/spdlog/details/log_msg_buffer.h \
+ /usr/local/dc/include/spdlog/details/log_msg.h \
+ /usr/local/dc/include/spdlog/version.h \
  /home/dc/dconstruct/dynamic_detection/ground_segmentation/include/StaticClusterer.hpp \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/segmentation/extract_clusters.h \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/pcl_base.h \
@@ -801,7 +823,7 @@ CMakeFiles/test_tracking.dir/src/test_tracking.cpp.o: \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/PolygonMesh.h \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/Vertices.h \
  /usr/include/c++/10/locale \
- /usr/include/c++/10/bits/locale_facets_nonio.h /usr/include/c++/10/ctime \
+ /usr/include/c++/10/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/time_members.h \
  /usr/include/x86_64-linux-gnu/c++/10/bits/messages_members.h \
  /usr/include/libintl.h /usr/include/c++/10/bits/codecvt.h \
@@ -877,27 +899,6 @@ CMakeFiles/test_tracking.dir/src/test_tracking.cpp.o: \
  /usr/include/c++/10/bits/random.tcc \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/sample_consensus/model_types.h \
  /usr/local/dc/boost/include/boost/random/uniform_01.hpp \
- /usr/include/c++/10/thread /usr/include/c++/10/chrono \
- /usr/include/c++/10/ratio /usr/include/c++/10/bits/parse_numbers.h \
- /usr/local/dc/include/spdlog/spdlog.h \
- /usr/local/dc/include/spdlog/common.h \
- /usr/local/dc/include/spdlog/details/null_mutex.h \
- /usr/local/dc/include/spdlog/tweakme.h \
- /usr/local/dc/include/spdlog/fmt/fmt.h /usr/local/dc/include/fmt/core.h \
- /usr/local/dc/include/fmt/format.h /usr/local/dc/include/fmt/base.h \
- /usr/local/dc/include/fmt/format.h \
- /usr/local/dc/include/spdlog/details/registry.h \
- /usr/local/dc/include/spdlog/details/periodic_worker.h \
- /usr/include/c++/10/condition_variable \
- /usr/include/c++/10/bits/std_mutex.h \
- /usr/include/c++/10/bits/unique_lock.h /usr/include/c++/10/mutex \
- /usr/local/dc/include/spdlog/details/synchronous_factory.h \
- /usr/local/dc/include/spdlog/logger.h \
- /usr/local/dc/include/spdlog/details/backtracer.h \
- /usr/local/dc/include/spdlog/details/circular_q.h \
- /usr/local/dc/include/spdlog/details/log_msg_buffer.h \
- /usr/local/dc/include/spdlog/details/log_msg.h \
- /usr/local/dc/include/spdlog/version.h \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/io/pcd_io.h \
  /usr/local/dc/pcl/include/pcl-1.14/pcl/io/file_io.h \
  /usr/local/dc/boost/include/boost/numeric/conversion/cast.hpp \

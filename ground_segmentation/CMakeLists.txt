@@ -16,14 +16,18 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(catkin REQUIRED)
 find_package(Eigen3 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
-                    ${catkin_INCLUDE_DIRS}) 
+                    ${CMAKE_CURRENT_SOURCE_DIR}/src
+                    ${catkin_INCLUDE_DIRS}
+                    ${EIGEN3_INCLUDE_DIRS}
+                    ${PCL_INCLUDE_DIRS}
+                    ) 
 
 # Find spdlog
 find_package(spdlog REQUIRED)
-
+include_directories(${spdlog_INCLUDE_DIRS})
 
 # Find PCL
-find_package(PCL 1.8 REQUIRED COMPONENTS common io filters features segmentation visualization kdtree)
+find_package(PCL 1.4 REQUIRED COMPONENTS common io filters features segmentation visualization kdtree)
 if (PCL_FOUND)
     include_directories(${PCL_INCLUDE_DIRS})
     link_directories(${PCL_LIBRARY_DIRS})
@@ -62,3 +66,16 @@ target_link_libraries(test_tracking
     ${PCL_LIBRARIES}               
     spdlog::spdlog                 
 )
+
+
+# add_library(ekf STATIC 
+#     src/EKFObjectTracker.cpp
+# )
+# add_executable(ekf_tracking_test src/ekf_tracking_test.cpp)
+# target_link_libraries(ekf_tracking_test
+#     ${catkin_LIBRARIES}
+#     my_segmentation_clustering_lib
+#     spdlog::spdlog
+#     ${PCL_LIBRARIES}
+#     ekf
+# )

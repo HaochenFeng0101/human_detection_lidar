@@ -1,5 +1,7 @@
 #pragma once
 #define SPDLOG_FMT_EXTERNAL
+
+
 #include <deque>
 #include <vector>
 #include <memory> // For std::shared_ptr
@@ -8,6 +10,7 @@
 #include <pcl/point_cloud.h>
 #include <Eigen/Dense> // For Eigen::Vector3f
 #include <limits> // For std::numeric_limits
+#include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
 
 // Define an enum for object types
 enum class ObjectType {
@@ -15,7 +18,6 @@ enum class ObjectType {
     HUMAN        // Specifically identified as a human
 };
 
-// Structure to hold information about a cloud in a frame
 struct CloudInfo {
     pcl::PointCloud<pcl::PointXYZI>::Ptr cloud;
     double timestamp;
@@ -57,14 +59,16 @@ public:
 
     void clearTrackedObjects();
 
-    Eigen::Vector3f calculateCentroid(const pcl::PointCloud<pcl::PointXYZI>::Ptr &cloud);
+    // Mark as const
+    Eigen::Vector3f calculateCentroid(const pcl::PointCloud<pcl::PointXYZI>::Ptr &cloud) const;
 
+    // Mark as const
     void calculateBoundingBox(const pcl::PointCloud<pcl::PointXYZI>::Ptr &cloud,
                               float &min_x, float &max_x,
                               float &min_y, float &max_y,
-                              float &min_z, float &max_z);
+                              float &min_z, float &max_z) const;
 
-    // Modified to only classify for HUMAN
+    // This one was already const, so it's fine
     ObjectType classifyCloud(float extent_x, float extent_y, float extent_z, size_t num_points) const;
 
     void process_non_grounded_points(
@@ -91,4 +95,19 @@ private:
                       const std::vector<TrackedObject>& tracked_objects_to_search,
                       const std::vector<bool>& original_tracked_object_matched_flags,
                       size_t search_limit) const;
+
+    // These were correctly marked const or non-const based on their behavior
+    std::vector<CloudInfo> processCurrentFrameClusters(
+        const std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> &new_non_ground_objects_clusters,
+        double current_timestamp) const;
+
+    void associateAndUpdateTracks(
+        std::vector<CloudInfo> &current_frame_infos,
+        double current_timestamp);
+
+    void determineObjectStates(
+        double current_timestamp,
+        std::vector<int> &falling_objects_out,
+        std::vector<int> &static_objects_out,
+        std::vector<int> &moved_objects_out);
 };
