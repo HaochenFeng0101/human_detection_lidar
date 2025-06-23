@@ -24,7 +24,7 @@
 #include <spdlog/spdlog.h> // For logging
 
 // Typedef for clarity
-typedef pcl::PointXYZI PointType;
+// typedef pcl::PointXYZI pcl::PointXYZI;
 
 // --- Main Function ---
 int main(int argc, char *argv[])
@@ -127,16 +127,16 @@ int main(int argc, char *argv[])
             frame_count++;
             std::cout << "\n--- Processing Frame " << frame_count << " ---" << std::endl;
 
-            // Convert ROS PointCloud2 to PCL PointCloud<PointXYZI> PointType
-            pcl::PointCloud<PointType>::Ptr input_cloud_raw(new pcl::PointCloud<PointType>);
+            // Convert ROS PointCloud2 to PCL PointCloud<PointXYZI> pcl::PointXYZI
+            pcl::PointCloud<pcl::PointXYZI>::Ptr input_cloud_raw(new pcl::PointCloud<pcl::PointXYZI>);
             pcl::fromROSMsg(*cloud_msg, *input_cloud_raw);
 
             double current_timestamp = cloud_msg->header.stamp.toSec();
 
             // 1. Ground Segmentation
-            pcl::PointCloud<PointType>::Ptr ground_cloud(new pcl::PointCloud<PointType>);
-            pcl::PointCloud<PointType>::Ptr non_ground_cloud(new pcl::PointCloud<PointType>);
-            pcl::PointCloud<PointType>::Ptr leveled_input_cloud_for_viz(new pcl::PointCloud<PointType>);
+            pcl::PointCloud<pcl::PointXYZI>::Ptr ground_cloud(new pcl::PointCloud<pcl::PointXYZI>);
+            pcl::PointCloud<pcl::PointXYZI>::Ptr non_ground_cloud(new pcl::PointCloud<pcl::PointXYZI>);
+            pcl::PointCloud<pcl::PointXYZI>::Ptr leveled_input_cloud_for_viz(new pcl::PointCloud<pcl::PointXYZI>);
 
             ground_segmenter.segmentGround(input_cloud_raw, ground_cloud, non_ground_cloud, leveled_input_cloud_for_viz);
 
@@ -154,8 +154,8 @@ int main(int argc, char *argv[])
             // Visualize Ground (White)
             if (!ground_cloud->empty())
             {
-                pcl::visualization::PointCloudColorHandlerCustom<PointType> ground_color(ground_cloud, 255, 255, 255); // White
-                viewer->addPointCloud<PointType>(ground_cloud, ground_color, "ground_cloud");
+                pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZI> ground_color(ground_cloud, 255, 255, 255); // White
+                viewer->addPointCloud<pcl::PointXYZI>(ground_cloud, ground_color, "ground_cloud");
                 viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "ground_cloud");
             }
 
@@ -171,12 +171,12 @@ int main(int argc, char *argv[])
                 // Create a point cloud for visualization using the latest associated measurement
                 // If no measurement history (e.g., just predicted or just initialized track),
                 // create a single point at the EKF estimated position.
-                pcl::PointCloud<PointType>::Ptr object_cloud_for_viz(new pcl::PointCloud<PointType>);
+                pcl::PointCloud<pcl::PointXYZI>::Ptr object_cloud_for_viz(new pcl::PointCloud<pcl::PointXYZI>);
                 if (!tracked_obj_ekf.measurement_history.empty()) {
                     object_cloud_for_viz = tracked_obj_ekf.measurement_history.back().cloud;
                 } else {
                     // Fallback: Visualize EKF's current estimated centroid as a single point
-                    PointType p_est;
+                    pcl::PointXYZI p_est;
                     p_est.x = tracked_obj_ekf.x(0);
                     p_est.y = tracked_obj_ekf.x(1);
                     p_est.z = tracked_obj_ekf.x(2);
@@ -208,8 +208,8 @@ int main(int argc, char *argv[])
                 }
 
                 // Add point cloud to viewer
-                pcl::visualization::PointCloudColorHandlerCustom<PointType> obj_color(object_cloud_for_viz, r, g, b);
-                viewer->addPointCloud<PointType>(object_cloud_for_viz, obj_color, cloud_id_str);
+                pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZI> obj_color(object_cloud_for_viz, r, g, b);
+                viewer->addPointCloud<pcl::PointXYZI>(object_cloud_for_viz, obj_color, cloud_id_str);
                 viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 5, cloud_id_str); // Make tracked points larger
 
                 // Add ID and status text at the EKF estimated centroid

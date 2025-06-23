@@ -8,8 +8,11 @@
 #include <pcl/point_cloud.h>
 #include <Eigen/Dense> // For Eigen::Vector3f
 #include <limits> // For std::numeric_limits
-// #include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
-
+#include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
+// #include <pcl/visualization/pcl_visualizer.h> // PCL Viewer
+// #include <pcl_conversions/pcl_conversions.h>  // For ROS to PCL conversion
+// #include <pcl/visualization/point_cloud_geometry_handlers.h>
+// #include <pcl/visualization/impl/point_cloud_geometry_handlers.hpp>
 // Define an enum for object types
 enum class ObjectType {
     UNKNOWN = 0, // Default or unclassified / non-human

@@ -1,50 +1,46 @@
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-project(my_segmentation_and_clustering CXX) # Changed project name for clarity
+cmake_minimum_required(VERSION 3.5 )
+include_guard(GLOBAL)
+project(my_segmentation_and_clustering CXX) 
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0") 
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  rospy
-  rosbag
-  sensor_msgs
-  pcl_ros
-)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
 
-find_package(catkin REQUIRED)
+find_package(ROS REQUIRED roscpp roscpp_serialization sensor_msgs message_filters rosbag tf2 cv_bridge)
+find_package(PCL REQUIRED QUIET)
 find_package(Eigen3 REQUIRED)
+# find_package(OpenCV CONFIG REQUIRED)
+find_package(spdlog CONFIG REQUIRED)
+# find_package(Boost 1.71.0 COMPONENTS filesystem system REQUIRED)
+
+# find_package(catkin REQUIRED COMPONENTS
+#     roscpp
+#     roscpp_serialization
+#     sensor_msgs
+#     message_filters
+#     rosbag
+#     tf2
+#     cv_bridge
+# )
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include
-                    ${CMAKE_CURRENT_SOURCE_DIR}/src
-                    ${catkin_INCLUDE_DIRS}
+                    # ${CMAKE_CURRENT_SOURCE_DIR}/src
+                    # ${cv_bridge_INCLUDE_DIRS}
+                    # ${catkin_INCLUDE_DIRS}
                     ${EIGEN3_INCLUDE_DIRS}
                     ${PCL_INCLUDE_DIRS}
+                    # ${OpenCV_INCLUDE_DIRS}
                     ) 
 
-# Find spdlog
-find_package(spdlog REQUIRED)
-include_directories(${spdlog_INCLUDE_DIRS})
-
-# Find PCL
-find_package(PCL 1.4 REQUIRED COMPONENTS common io filters features segmentation visualization kdtree)
-if (PCL_FOUND)
-    include_directories(${PCL_INCLUDE_DIRS})
-    link_directories(${PCL_LIBRARY_DIRS})
-    add_definitions(${PCL_DEFINITIONS})
-endif()
-
-
-add_library(my_segmentation_clustering_lib STATIC 
+add_library(seg_cluster_lib  
     src/groundseg.cpp
     src/StaticClusterer.cpp
+    src/comparing_clouds.cpp
 )
-
-
-# Libraries should also be linked to their dependencies
-target_link_libraries(my_segmentation_clustering_lib
-    ${PCL_LIBRARIES} # Link all PCL components found
-    spdlog::spdlog    # Link spdlog
+target_link_libraries(seg_cluster_lib
+     spdlog::spdlog
 )
 
 
@@ -56,16 +52,20 @@ target_link_libraries(my_segmentation_clustering_lib
 # )
 
 add_executable(test_tracking src/test_tracking.cpp)
-add_library(comparing_clouds_lib STATIC 
-    src/comparing_clouds.cpp
-)
+
+
 target_link_libraries(test_tracking
-    ${catkin_LIBRARIES} 
-    my_segmentation_clustering_lib 
-    comparing_clouds_lib
+    # ${catkin_LIBRARIES} 
+    seg_cluster_lib 
     ${PCL_LIBRARIES}               
-    spdlog::spdlog                 
+    spdlog::spdlog     
+    ros::roscpp
+    ros::roscpp_serialization
+    ros::message_filters
+    ros::rosbag
+#   ros::tf2      
 )
+
 
 
 # add_library(ekf STATIC 

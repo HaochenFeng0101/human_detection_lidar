@@ -12,7 +12,7 @@
 #include <pcl/sample_consensus/method_types.h>
 #include <pcl/sample_consensus/model_types.h>
 
-#include <spdlog/spdlog.h>
+// #include <spdlog/spdlog.h>
 
 #include <pcl/common/transforms.h>
 #include <Eigen/Geometry>
@@ -45,7 +45,7 @@ bool LidarGroundSegmenter::alignCloudWithGround(const pcl::PointCloud<pcl::Point
     transform_out = Eigen::Affine3f::Identity(); // Reset transform
 
     if (input_cloud->empty()) {
-        spdlog::warn("Input cloud for ground alignment is empty.");
+        // spdlog::warn("Input cloud for ground alignment is empty.");
         return false;
     }
 
@@ -61,7 +61,7 @@ bool LidarGroundSegmenter::alignCloudWithGround(const pcl::PointCloud<pcl::Point
     seg_align.segment(*inliers, *plane_coefficients_out); // Segment and get coefficients
 
     if (inliers->indices.empty() || inliers->indices.size() < m_min_plane_points / 2) {
-        spdlog::warn("Failed to detect a dominant plane for ground alignment or plane is too small. Inliers: {}.", inliers->indices.size());
+        // spdlog::warn("Failed to detect a dominant plane for ground alignment or plane is too small. Inliers: {}.", inliers->indices.size());
         *output_leveled_cloud = *input_cloud; // No transform applied
         return false;
     }
@@ -87,7 +87,7 @@ bool LidarGroundSegmenter::alignCloudWithGround(const pcl::PointCloud<pcl::Point
     
     if (rotation_axis.norm() < 1e-6) { // Plane is already aligned or anti-aligned with target_up_vector
         if (dot_product > 0.999) { // Already aligned
-             spdlog::info("Cloud already aligned with ground.");
+            //  spdlog::info("Cloud already aligned with ground.");
              *output_leveled_cloud = *input_cloud;
              return true;
         } else { // Anti-aligned (normal points down)
@@ -104,9 +104,9 @@ bool LidarGroundSegmenter::alignCloudWithGround(const pcl::PointCloud<pcl::Point
     transform_out.rotate(Eigen::AngleAxisf(rotation_angle, rotation_axis));
 
     pcl::transformPointCloud(*input_cloud, *output_leveled_cloud, transform_out);
-    spdlog::info("Aligned cloud with ground. Normal: ({:.2f}, {:.2f}, {:.2f}), Rotation angle: {:.2f} rad around axis ({:.2f}, {:.2f}, {:.2f})",
-              plane_normal.x(), plane_normal.y(), plane_normal.z(),
-              rotation_angle, rotation_axis.x(), rotation_axis.y(), rotation_axis.z());
+    // spdlog::info("Aligned cloud with ground. Normal: ({:.2f}, {:.2f}, {:.2f}), Rotation angle: {:.2f} rad around axis ({:.2f}, {:.2f}, {:.2f})",
+    //           plane_normal.x(), plane_normal.y(), plane_normal.z(),
+    //           rotation_angle, rotation_axis.x(), rotation_axis.y(), rotation_axis.z());
     
               
     return true;
@@ -138,7 +138,7 @@ void LidarGroundSegmenter::segmentGround(const pcl::PointCloud<pcl::PointXYZI>::
     std::cout << "Downsampled to " << cloud_downsampled->points.size() << " points." << std::endl;
 
     if (cloud_downsampled->empty()) {
-        spdlog::error("Downsampled cloud is empty, cannot proceed with segmentation.");
+        // spdlog::error("Downsampled cloud is empty, cannot proceed with segmentation.");
         return;
     }
 
@@ -155,7 +155,7 @@ void LidarGroundSegmenter::segmentGround(const pcl::PointCloud<pcl::PointXYZI>::
     );
 
     if (!plane_found_and_transformed) {
-        spdlog::warn("No suitable dominant plane found in downsampled cloud for segmentation. All points considered non-ground.");
+        // spdlog::warn("No suitable dominant plane found in downsampled cloud for segmentation. All points considered non-ground.");
         *non_ground_cloud = *input_cloud_raw; // Original input becomes non-ground
         *output_leveled_input_cloud = *input_cloud_raw; // No leveling applied
         return;
@@ -203,7 +203,7 @@ void LidarGroundSegmenter::segmentGround(const pcl::PointCloud<pcl::PointXYZI>::
         seg_extract.segment(*ground_inliers, *ground_coefficients_final);
 
         if (ground_inliers->indices.empty() || ground_inliers->indices.size() < m_min_plane_points) {
-            spdlog::warn("RANSAC on leveled full cloud found no ground or too small. All points considered non-ground.");
+            // spdlog::warn("RANSAC on leveled full cloud found no ground or too small. All points considered non-ground.");
             *non_ground_cloud = *output_leveled_input_cloud;
             return;
         }
@@ -227,7 +227,7 @@ void LidarGroundSegmenter::segmentGround(const pcl::PointCloud<pcl::PointXYZI>::
         pcl::io::savePCDFileASCII("non_ground.pcd", *m_non_ground_plane_cloud);
       
     } else {
-        spdlog::warn("Dominant plane found ({:.2f} deg from horizontal) but too steep to be considered ground in leveled frame. All points considered non-ground.", normal_angle_with_z_deg);
+        // spdlog::warn("Dominant plane found ({:.2f} deg from horizontal) but too steep to be considered ground in leveled frame. All points considered non-ground.", normal_angle_with_z_deg);
         *non_ground_cloud = *output_leveled_input_cloud; // All points are non-ground if the dominant plane is too steep
     }
 
