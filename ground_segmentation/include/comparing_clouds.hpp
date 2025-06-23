@@ -1,7 +1,5 @@
 #pragma once
-#define SPDLOG_FMT_EXTERNAL
-
-
+// #define SPDLOG_FMT_EXTERNAL
 #include <deque>
 #include <vector>
 #include <memory> // For std::shared_ptr
@@ -10,7 +8,7 @@
 #include <pcl/point_cloud.h>
 #include <Eigen/Dense> // For Eigen::Vector3f
 #include <limits> // For std::numeric_limits
-#include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
+// #include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
 
 // Define an enum for object types
 enum class ObjectType {
@@ -19,7 +17,7 @@ enum class ObjectType {
 };
 
 struct CloudInfo {
-    pcl::PointCloud<pcl::PointXYZI>::Ptr cloud;
+    // pcl::PointCloud<pcl::PointXYZI>::Ptr cloud;
     double timestamp;
     Eigen::Vector3f center_of_mass;
     float min_x, max_x;

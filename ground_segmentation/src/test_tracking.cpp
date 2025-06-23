@@ -1,6 +1,6 @@
 #include "comparing_clouds.hpp"
-#include "StaticClusterer.hpp"  
-#include "groundseg.hpp"       
+#include "StaticClusterer.hpp"
+#include "groundseg.hpp"
 
 #include <iostream>
 #include <algorithm>
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
     // --- Initialize Ground Segmenter, Static Clusterer, and Object Tracker ---
     LidarGroundSegmenter ground_segmenter;
     // Adjust parameters if needed: cluster_tolerance, min_cluster_size, max_cluster_size, voxel_leaf_size
-    StaticClusterer clusterer(0.2, 25, 90, 0.15); // Example values, adjust as per your environment/sensor
+    StaticClusterer clusterer(0.2, 30, 100, 0.15); // 0.2 30 100 0.15
     // Adjust parameters for tracking/fall detection: max_hist_time, assoc_dist, fall_height_change, fall_duration, static_dist, min_static_frames
     comparing_clouds object_tracker(
         10.0, // max_hist_time (seconds) - keep history for 10 seconds
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
             // --- Visualization ---
             viewer->removeAllPointClouds(); // Clear previous clouds
             viewer->removeAllShapes();      // Clear previous shapes (if any)
-            // viewer->removePointCloud("ground_cloud"); 
+            // viewer->removePointCloud("ground_cloud");
 
             // Visualize Ground (White)
             if (!ground_cloud->empty())
@@ -156,105 +156,63 @@ int main(int argc, char *argv[])
                 viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "ground_cloud");
             }
 
-            // std::vector<int> non_ground_ids; 
-            // auto it = std::find_if(
-            //     falling_ids.begin(), falling_ids.end(),
-            //     [](int id) { return non_ground_ids.add(id); });
-            // auto it2 = std::find_if(
-            //     static_ids.begin(), static_ids.end(),
-            //     [](int id) { return non_ground_ids.add(id); });
-            // auto it3 = std::find_if(
-            //     moved_ids.begin(), moved_ids.end(),
-            //     [](int id) { return non_ground_ids.add(id); });
-
-            
             // Visualize Tracked Objects (colors based on status)
             // The flags (is_falling, is_static) are now set within each TrackedObject by process_non_grounded_points
             const auto &all_tracked_objects = object_tracker.getAllTrackedObjects();
+
+            //two for loop might be inefficient
             for (const auto &tracked_obj : all_tracked_objects)
-            {   
-                bool in_falling_list = false, in_static_id = false, in_moving_id = false;
-                // spdlog::info("current id {}", tracked_obj.id());
-                //check if id in non ground segment
-                for (size_t i = 0;i <  falling_ids.size();++i){
-                    if (tracked_obj.id  == falling_ids[i])
-                    {
-                        in_falling_list = true;
-                    }
-                    
-                }
-                for (size_t i = 0;i <  static_ids.size();++i){
-                    if (tracked_obj.id  == static_ids[i])
-                    {
-                        in_static_id = true;
-                    }
-                    
-                }
-                for (size_t i = 0;i <  moved_ids.size();++i){
-                    if (tracked_obj.id  == moved_ids[i])
-                    {
-                        in_moving_id = true;
-                    }
-                    
-                }
-                if (!in_falling_list && !in_moving_id && !in_static_id){
-                    spdlog::info("not in current list, ignore!!!");
-                    continue;
-                }
-
-
-                
-                
-                if (tracked_obj.history.empty())
-                {
-                    spdlog::warn("Tracked object ID {} has no history points, skipping visualization.", tracked_obj.id);
-                    continue; // Skip if no points
-                }
-
+            {
                 // Always use the latest cloud data for visualization
-                pcl::PointCloud<PointType>::Ptr object_cloud = tracked_obj.history.back().cloud;
-                std::string cloud_id_str = "object_" + std::to_string(tracked_obj.id);
-
-                unsigned char r = 0, g = 0, b = 0; // Default to black
-                if (tracked_obj.is_falling)
+                for (const auto &current_clustered : clustered_objects)
                 {
-                    r = 255;
-                    g = 0;
-                    b = 255; // Magenta for falling
-                    std::cout << "  - Object ID " << tracked_obj.id << " is FALLING!" << std::endl;
-                }
-                else if (tracked_obj.is_static)
-                {
-                    r = 0;
-                    g = 255;
-                    b = 0; // Green for static
-                    std::cout << "  - Object ID " << tracked_obj.id << " is STATIC." << std::endl;
-                }
-                else
-                { // Moved or new (i.e., not falling and not static)
-                    r = 255;
-                    g = 0;
-                    b = 0; // Red for moved/dynamic
-                    std::cout << "  - Object ID " << tracked_obj.id << " is MOVED/DYNAMIC." << std::endl;
-                }
+                    if (object_tracker.calculateCentroid(current_clustered) == tracked_obj.current_centroid)
+                    {
+                        // pcl::PointCloud<PointType>::Ptr object_cloud = tracked_obj.latest_cloud;
+                        
+                        std::string cloud_id_str = "object_" + std::to_string(tracked_obj.id);
 
-               
-                //print the tracked object details
-                spdlog::info("Tracked Object ID: {}, Type: {}, Centroid: ({:.2f}, {:.2f}, {:.2f}), Extents: ({:.2f}x{:.2f}x{:.2f}), Min Z: {:.2f}, Max Z: {:.2f}",
-                         tracked_obj.id,
-                         (tracked_obj.classified_type == ObjectType::HUMAN) ? "HUMAN" : "UNKNOWN",
-                         tracked_obj.current_centroid.x(),
-                         tracked_obj.current_centroid.y(),
-                         tracked_obj.current_centroid.z(),
-                         tracked_obj.current_extent_x,
-                         tracked_obj.current_extent_y,
-                         tracked_obj.current_extent_z,
-                         tracked_obj.current_min_z,
-                         tracked_obj.current_max_z);
+                        unsigned char r = 0, g = 0, b = 0; // Default to black
+                        if (tracked_obj.is_falling)
+                        {
+                            r = 255;
+                            g = 0;
+                            b = 255; // Magenta for falling
+                            std::cout << "  - Object ID " << tracked_obj.id << " is FALLING!" << std::endl;
+                        }
+                        else if (tracked_obj.is_static)
+                        {
+                            r = 0;
+                            g = 255;
+                            b = 0; // Green for static
+                            std::cout << "  - Object ID " << tracked_obj.id << " is STATIC." << std::endl;
+                        }
+                        else
+                        { // Moved or new (i.e., not falling and not static)
+                            r = 255;
+                            g = 0;
+                            b = 0; // Red for moved/dynamic
+                            std::cout << "  - Object ID " << tracked_obj.id << " is MOVED/DYNAMIC." << std::endl;
+                        }
 
-                pcl::visualization::PointCloudColorHandlerCustom<PointType> obj_color(object_cloud, r, g, b);
-                viewer->addPointCloud<PointType>(object_cloud, obj_color, cloud_id_str);
-                viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, cloud_id_str);
+                        // print the tracked object details
+                        spdlog::info("Tracked Object ID: {}, Type: {}, Centroid: ({:.2f}, {:.2f}, {:.2f}), Extents: ({:.2f}x{:.2f}x{:.2f}), Min Z: {:.2f}, Max Z: {:.2f}",
+                                     tracked_obj.id,
+                                     (tracked_obj.classified_type == ObjectType::HUMAN) ? "HUMAN" : "UNKNOWN",
+                                     tracked_obj.current_centroid.x(),
+                                     tracked_obj.current_centroid.y(),
+                                     tracked_obj.current_centroid.z(),
+                                     tracked_obj.current_extent_x,
+                                     tracked_obj.current_extent_y,
+                                     tracked_obj.current_extent_z,
+                                     tracked_obj.current_min_z,
+                                     tracked_obj.current_max_z);
+
+                        pcl::visualization::PointCloudColorHandlerCustom<PointType> obj_color(current_clustered, r, g, b);
+                        viewer->addPointCloud<PointType>(current_clustered, obj_color, cloud_id_str);
+                        viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, cloud_id_str);
+                    }
+                }
             }
 
             viewer->spinOnce(100);                                      // Process PCL viewer events

@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcomparing_clouds_lib.a CMakeFiles/comparing_clouds_lib.dir/src/comparing_clouds.cpp.o
-/usr/bin/ranlib libcomparing_clouds_lib.a

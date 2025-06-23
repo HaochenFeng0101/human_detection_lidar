@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm> // For std::find_if, std::remove_if, std::max, std::min
 #include <cmath>     // For std::pow, std::sqrt, std::abs
-#include <spdlog/spdlog.h>
+// #include <spdlog/spdlog.h>
 #include <pcl/io/pcd_io.h> // For saving PCD files
 // Constructor
 comparing_clouds::comparing_clouds(double max_hist_time, double assoc_dist,
@@ -124,12 +124,14 @@ ObjectType comparing_clouds::classifyCloud(float extent_x, float extent_y, float
     return ObjectType::UNKNOWN;
 }
 
-int comparing_clouds::findBestMatch(const CloudInfo &current_info,
-                                    const std::vector<TrackedObject> &tracked_objects_to_search,
-                                    const std::vector<bool> &original_tracked_object_matched_flags,
-                                    size_t search_limit) const
+int comparing_clouds::findBestMatch(
+    const CloudInfo &current_info,
+
+    const std::vector<TrackedObject> &tracked_objects_to_search,
+    const std::vector<bool> &original_tracked_object_matched_flags,
+    size_t search_limit) const
 {
-    //find best match with distance
+    // find best match with distance
     double min_dist_sq = std::numeric_limits<double>::max();
     int best_match_idx = -1;
 
@@ -151,9 +153,7 @@ int comparing_clouds::findBestMatch(const CloudInfo &current_info,
     return best_match_idx;
 }
 
-// === START OF NEWLY REFACTORED FUNCTIONS ===
-
-// New function: Extract CloudInfo from raw clusters
+// Extract CloudInfo from raw clusters
 std::vector<CloudInfo> comparing_clouds::processCurrentFrameClusters(
     const std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> &new_non_ground_objects_clusters,
     double current_timestamp) const
@@ -161,7 +161,8 @@ std::vector<CloudInfo> comparing_clouds::processCurrentFrameClusters(
     std::vector<CloudInfo> current_frame_infos;
     for (const auto &cluster_cloud : new_non_ground_objects_clusters)
     {
-        if (cluster_cloud->empty()) continue; // Skip empty clusters
+        if (cluster_cloud->empty())
+            continue; // Skip empty clusters
 
         // Optional point count filtering (as commented out in original)
         // if (cluster_cloud->points.size() < 40 || cluster_cloud->points.size() > 100)
@@ -173,7 +174,7 @@ std::vector<CloudInfo> comparing_clouds::processCurrentFrameClusters(
 
         CloudInfo info;
         info.timestamp = current_timestamp;
-        info.cloud = cluster_cloud; // Assign cloud to info
+        // info.cloud = cluster_cloud; // Assign cloud to info
 
         // These calls are now valid because calculateCentroid and calculateBoundingBox are const
         info.center_of_mass = calculateCentroid(cluster_cloud);
@@ -215,7 +216,7 @@ void comparing_clouds::associateAndUpdateTracks(
     std::vector<CloudInfo> &current_frame_infos, // current_frame_infos passed by reference to modify IDs
     double current_timestamp)
 {
-    spdlog::info("Associating and updating tracks. Current frame clusters: {}", current_frame_infos.size());
+    // spdlog::info("Associating and updating tracks. Current frame clusters: {}", current_frame_infos.size());
 
     size_t initial_tracked_objects_size = m_tracked_objects.size();
     std::vector<bool> original_tracked_object_matched_this_frame(initial_tracked_objects_size, false);
@@ -227,7 +228,7 @@ void comparing_clouds::associateAndUpdateTracks(
         int best_match_idx = findBestMatch(current_info, m_tracked_objects,
                                            original_tracked_object_matched_this_frame,
                                            initial_tracked_objects_size);
-                                           //find best match id with id 
+        // find best match id with id
 
         if (best_match_idx != -1)
         {
@@ -291,16 +292,16 @@ void comparing_clouds::associateAndUpdateTracks(
                 new_tracked_obj.classified_type = current_info.detected_type; // Should be HUMAN here
 
                 m_tracked_objects.push_back(new_tracked_obj);
-                spdlog::info("New tracked object created with ID {} at timestamp {:.2f}", new_tracked_obj.id, current_timestamp);
+                // spdlog::info("New tracked object created with ID {} at timestamp {:.2f}", new_tracked_obj.id, current_timestamp);
             }
             else
             {
                 // If it's not a human and no match, just ignore it (don't track it)
-                spdlog::debug("Cluster not classified as HUMAN and no match found. Skipping tracking.");
+                // spdlog::debug("Cluster not classified as HUMAN and no match found. Skipping tracking.");
             }
         }
     }
-    
+
     // This loop handles:
     // 1. Objects that haven't been updated for too long (disappeared).
     // 2. Objects whose `classified_type` somehow reverted to `UNKNOWN` (no longer looks like a human).
@@ -326,12 +327,13 @@ void comparing_clouds::associateAndUpdateTracks(
             if (current_timestamp - tracked_obj.last_update_time > m_max_history_time ||
                 tracked_obj.classified_type == ObjectType::UNKNOWN)
             {
-                spdlog::info("Removing tracked object ID {} due to no update for too long or type changed to UNKNOWN.", tracked_obj.id);
+                // spdlog::info("Removing tracked object ID {} due to no update for too long or type changed to UNKNOWN.", tracked_obj.id);
                 continue; // Skip adding to next_tracked_objects
             }
         }
         // If it was not updated but is still within history time, keep it but clear fall/static flags
-        if (!was_updated_this_frame) {
+        if (!was_updated_this_frame)
+        {
             tracked_obj.is_falling = false;
             tracked_obj.is_static = false;
         }
@@ -344,7 +346,7 @@ void comparing_clouds::associateAndUpdateTracks(
     }
     m_tracked_objects = next_tracked_objects; // Update the main list of tracked objects
 
-    spdlog::info("Tracked objects after association and pruning: {}", m_tracked_objects.size());
+    // spdlog::info("Tracked objects after association and pruning: {}", m_tracked_objects.size());
 }
 
 // Determines static, falling, and moved states for *current* tracked objects
@@ -358,7 +360,7 @@ void comparing_clouds::determineObjectStates(
     static_objects_out.clear();
     moved_objects_out.clear();
 
-    spdlog::info("Determining states for {} tracked objects.", m_tracked_objects.size());
+    // spdlog::info("Determining states for {} tracked objects.", m_tracked_objects.size());
 
     for (auto &tracked_obj : m_tracked_objects)
     {
@@ -400,15 +402,15 @@ void comparing_clouds::determineObjectStates(
             double height_drop = first_centroid.z() - last_centroid.z();
             double time_span = last_info_in_history.timestamp - first_info_in_history.timestamp;
 
-            spdlog::debug("Object ID {}: Height drop: {:.2f}m, Time span: {:.2f}s", tracked_obj.id, height_drop, time_span);
+            // spdlog::debug("Object ID {}: Height drop: {:.2f}m, Time span: {:.2f}s", tracked_obj.id, height_drop, time_span);
 
             // Condition for falling: significant height drop within a short duration
             if (height_drop > m_min_fall_height_change && time_span < m_min_fall_duration)
             {
                 tracked_obj.is_falling = true;
                 falling_objects_out.push_back(tracked_obj.id);
-                spdlog::warn("DETECTED FALL for object ID {}! Height drop: {:.2f}m, Duration: {:.2f}s",
-                             tracked_obj.id, height_drop, time_span);
+                // spdlog::warn("DETECTED FALL for object ID {}! Height drop: {:.2f}m, Duration: {:.2f}s",
+                //              tracked_obj.id, height_drop, time_span);
             }
         }
 
@@ -426,8 +428,6 @@ void comparing_clouds::determineObjectStates(
     }
 }
 
-
-
 // Orchestrates the overall processing flow
 void comparing_clouds::process_non_grounded_points(
     const std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> &new_non_ground_objects_clusters,
@@ -436,23 +436,23 @@ void comparing_clouds::process_non_grounded_points(
     std::vector<int> &static_objects_out,
     std::vector<int> &moved_objects_out)
 {
-    spdlog::info("Processing {} new non-ground object clusters at timestamp {}",
-                 new_non_ground_objects_clusters.size(), current_timestamp);
+    // spdlog::info("Processing {} new non-ground object clusters at timestamp {}",
+                //  new_non_ground_objects_clusters.size(), current_timestamp);
 
     // Step 1: Process raw clusters into CloudInfo objects for the current frame
     std::vector<CloudInfo> current_frame_infos = processCurrentFrameClusters(new_non_ground_objects_clusters, current_timestamp);
-    spdlog::info("Generated {} CloudInfo objects for current frame.", current_frame_infos.size());
+    // spdlog::info("Generated {} CloudInfo objects for current frame.", current_frame_infos.size());
 
     // Step 2: Associate current frame objects with existing tracks, update them, and manage track lifecycle
     associateAndUpdateTracks(current_frame_infos, current_timestamp);
-    spdlog::info("Finished association and track updates. {} tracks remaining.", m_tracked_objects.size());
+    // spdlog::info("Finished association and track updates. {} tracks remaining.", m_tracked_objects.size());
 
     // Step 3: Determine the static, falling, and moved states of the current set of tracked objects
     determineObjectStates(current_timestamp, falling_objects_out, static_objects_out, moved_objects_out);
-    spdlog::info("Identified {} falling, {} static, {} moved objects.",
-                 falling_objects_out.size(), static_objects_out.size(), moved_objects_out.size());
+    // spdlog::info("Identified {} falling, {} static, {} moved objects.",
+                //  falling_objects_out.size(), static_objects_out.size(), moved_objects_out.size());
 
-    std::cout << "Tracked objects after full processing: " << m_tracked_objects.size() << std::endl;
+    // std::cout << "Tracked objects after full processing: " << m_tracked_objects.size() << std::endl;
 }
 
 std::vector<TrackedObject> comparing_clouds::getAllTrackedObjects() const
@@ -468,6 +468,10 @@ std::vector<TrackedObject> comparing_clouds::getAllTrackedObjects() const
     }
     return humans;
 }
+// std::vector<int> comparing_clouds::find_corresponding_id(pcl::PointCloud<pcl::PointXYZI>::ptr target){
+
+// }
+
 
 const TrackedObject *comparing_clouds::getTrackedObjectById(int object_id) const
 {
