@@ -2,19 +2,20 @@
 #include <iostream>
 #include <algorithm> // For std::find_if, std::remove_if, std::max, std::min
 #include <cmath>     // For std::pow, std::sqrt, std::abs
-// #include <spdlog/spdlog.h>
+#include <spdlog/spdlog.h>
 #include <pcl/io/pcd_io.h> // For saving PCD files
 // Constructor
 comparing_clouds::comparing_clouds(double max_hist_time, double assoc_dist,
                                    double fall_height_change, double fall_duration,
-                                   double static_dist, int min_static_frames)
+                                   double static_dist, int min_static_frames, double state_threshold_time)
     : m_max_history_time(max_hist_time),
       m_association_dist_sq(assoc_dist * assoc_dist),
       m_min_fall_height_change(fall_height_change),
       m_min_fall_duration(fall_duration),
       m_static_threshold_dist_sq(static_dist * static_dist),
       m_min_static_frames(min_static_frames),
-      m_next_object_id(0)
+      m_next_object_id(0),
+      m_state_threshold_time(state_threshold_time)
 {
     std::cout << "ComparingClouds initialized with parameters:" << std::endl;
     std::cout << "  Max History Time: " << m_max_history_time << "s" << std::endl;
@@ -216,7 +217,7 @@ void comparing_clouds::associateAndUpdateTracks(
     std::vector<CloudInfo> &current_frame_infos, // current_frame_infos passed by reference to modify IDs
     double current_timestamp)
 {
-    // spdlog::info("Associating and updating tracks. Current frame clusters: {}", current_frame_infos.size());
+    spdlog::info("Associating and updating tracks. Current frame clusters: {}", current_frame_infos.size());
 
     size_t initial_tracked_objects_size = m_tracked_objects.size();
     std::vector<bool> original_tracked_object_matched_this_frame(initial_tracked_objects_size, false);
@@ -292,12 +293,12 @@ void comparing_clouds::associateAndUpdateTracks(
                 new_tracked_obj.classified_type = current_info.detected_type; // Should be HUMAN here
 
                 m_tracked_objects.push_back(new_tracked_obj);
-                // spdlog::info("New tracked object created with ID {} at timestamp {:.2f}", new_tracked_obj.id, current_timestamp);
+                spdlog::info("New tracked object created with ID {} at timestamp {:.2f}", new_tracked_obj.id, current_timestamp);
             }
             else
             {
                 // If it's not a human and no match, just ignore it (don't track it)
-                // spdlog::debug("Cluster not classified as HUMAN and no match found. Skipping tracking.");
+                spdlog::debug("Cluster not classified as HUMAN and no match found. Skipping tracking.");
             }
         }
     }
@@ -327,7 +328,7 @@ void comparing_clouds::associateAndUpdateTracks(
             if (current_timestamp - tracked_obj.last_update_time > m_max_history_time ||
                 tracked_obj.classified_type == ObjectType::UNKNOWN)
             {
-                // spdlog::info("Removing tracked object ID {} due to no update for too long or type changed to UNKNOWN.", tracked_obj.id);
+                spdlog::info("Removing tracked object ID {} due to no update for too long or type changed to UNKNOWN.", tracked_obj.id);
                 continue; // Skip adding to next_tracked_objects
             }
         }
@@ -346,7 +347,7 @@ void comparing_clouds::associateAndUpdateTracks(
     }
     m_tracked_objects = next_tracked_objects; // Update the main list of tracked objects
 
-    // spdlog::info("Tracked objects after association and pruning: {}", m_tracked_objects.size());
+    spdlog::info("Tracked objects after association and pruning: {}", m_tracked_objects.size());
 }
 
 // Determines static, falling, and moved states for *current* tracked objects
@@ -360,7 +361,7 @@ void comparing_clouds::determineObjectStates(
     static_objects_out.clear();
     moved_objects_out.clear();
 
-    // spdlog::info("Determining states for {} tracked objects.", m_tracked_objects.size());
+    spdlog::info("Determining states for {} tracked objects.", m_tracked_objects.size());
 
     for (auto &tracked_obj : m_tracked_objects)
     {
@@ -402,15 +403,15 @@ void comparing_clouds::determineObjectStates(
             double height_drop = first_centroid.z() - last_centroid.z();
             double time_span = last_info_in_history.timestamp - first_info_in_history.timestamp;
 
-            // spdlog::debug("Object ID {}: Height drop: {:.2f}m, Time span: {:.2f}s", tracked_obj.id, height_drop, time_span);
+            spdlog::debug("Object ID {}: Height drop: {:.2f}m, Time span: {:.2f}s", tracked_obj.id, height_drop, time_span);
 
             // Condition for falling: significant height drop within a short duration
             if (height_drop > m_min_fall_height_change && time_span < m_min_fall_duration)
             {
                 tracked_obj.is_falling = true;
                 falling_objects_out.push_back(tracked_obj.id);
-                // spdlog::warn("DETECTED FALL for object ID {}! Height drop: {:.2f}m, Duration: {:.2f}s",
-                //              tracked_obj.id, height_drop, time_span);
+                spdlog::warn("DETECTED FALL for object ID {}! Height drop: {:.2f}m, Duration: {:.2f}s",
+                             tracked_obj.id, height_drop, time_span);
             }
         }
 
@@ -436,23 +437,23 @@ void comparing_clouds::process_non_grounded_points(
     std::vector<int> &static_objects_out,
     std::vector<int> &moved_objects_out)
 {
-    // spdlog::info("Processing {} new non-ground object clusters at timestamp {}",
-                //  new_non_ground_objects_clusters.size(), current_timestamp);
+    spdlog::info("Processing {} new non-ground object clusters at timestamp {}",
+                 new_non_ground_objects_clusters.size(), current_timestamp);
 
     // Step 1: Process raw clusters into CloudInfo objects for the current frame
     std::vector<CloudInfo> current_frame_infos = processCurrentFrameClusters(new_non_ground_objects_clusters, current_timestamp);
-    // spdlog::info("Generated {} CloudInfo objects for current frame.", current_frame_infos.size());
+    spdlog::info("Generated {} CloudInfo objects for current frame.", current_frame_infos.size());
 
     // Step 2: Associate current frame objects with existing tracks, update them, and manage track lifecycle
     associateAndUpdateTracks(current_frame_infos, current_timestamp);
-    // spdlog::info("Finished association and track updates. {} tracks remaining.", m_tracked_objects.size());
+    spdlog::info("Finished association and track updates. {} tracks remaining.", m_tracked_objects.size());
 
     // Step 3: Determine the static, falling, and moved states of the current set of tracked objects
     determineObjectStates(current_timestamp, falling_objects_out, static_objects_out, moved_objects_out);
-    // spdlog::info("Identified {} falling, {} static, {} moved objects.",
-                //  falling_objects_out.size(), static_objects_out.size(), moved_objects_out.size());
+    spdlog::info("Identified {} falling, {} static, {} moved objects.",
+                 falling_objects_out.size(), static_objects_out.size(), moved_objects_out.size());
 
-    // std::cout << "Tracked objects after full processing: " << m_tracked_objects.size() << std::endl;
+    std::cout << "Tracked objects after full processing: " << m_tracked_objects.size() << std::endl;
 }
 
 std::vector<TrackedObject> comparing_clouds::getAllTrackedObjects() const
@@ -468,10 +469,6 @@ std::vector<TrackedObject> comparing_clouds::getAllTrackedObjects() const
     }
     return humans;
 }
-// std::vector<int> comparing_clouds::find_corresponding_id(pcl::PointCloud<pcl::PointXYZI>::ptr target){
-
-// }
-
 
 const TrackedObject *comparing_clouds::getTrackedObjectById(int object_id) const
 {
@@ -485,4 +482,58 @@ const TrackedObject *comparing_clouds::getTrackedObjectById(int object_id) const
         return &(*it);
     }
     return nullptr;
+}
+
+double comparing_clouds::getLatestTrackedObjectTimestamp() const {
+    double latest_timestamp = 0.0; // Initialize with a very old time or 0
+
+    if (m_tracked_objects.empty()) {
+        return latest_timestamp;
+    }
+
+    // Find the maximum last_update_time among all tracked objects
+    for (const auto& obj : m_tracked_objects) {
+        if (obj.last_update_time > latest_timestamp) {
+            latest_timestamp = obj.last_update_time;
+        }
+    }
+    spdlog::debug("Latest tracked object timestamp: {:.2f}", latest_timestamp);
+    return latest_timestamp;
+}
+
+void comparing_clouds::removeStaleTrackedObjects(double current_timestamp) {
+    // Ensure m_state_threshold_time is correctly initialized in the constructor
+    // For example: comparing_clouds(...) : ..., m_state_threshold_time(10.0), ... {}
+    const double STALE_THRESHOLD_SECONDS = m_state_threshold_time;
+    
+    size_t initial_count = m_tracked_objects.size();
+
+    // Use erase-remove idiom to efficiently remove elements
+    m_tracked_objects.erase(
+        std::remove_if(m_tracked_objects.begin(), m_tracked_objects.end(),
+                       [this, current_timestamp, STALE_THRESHOLD_SECONDS](const TrackedObject& obj) {
+                           // Ensure history is not empty before accessing its elements
+                           if (obj.history.empty()) {
+                               // This case should ideally not happen if objects are always created with at least one CloudInfo.
+                               // If it does, we might consider them stale by default or log a warning.
+                               spdlog::warn("Tracked object ID {} has empty history. Removing as stale.", obj.id);
+                               return true; // Remove objects with empty history
+                           }
+
+                           // Get the timestamp of the latest CloudInfo in the history
+                           // obj.history.back().timestamp is equivalent to obj.last_update_time if history is kept consistent.
+                           // Using history.back().timestamp directly as requested:
+                           double time_since_last_observation = current_timestamp - obj.history.back().timestamp;
+
+                           if (time_since_last_observation > STALE_THRESHOLD_SECONDS) {
+                               spdlog::info("Removing stale tracked object ID {} (last observed {:.2f}s ago in history).",
+                                            obj.id, time_since_last_observation);
+                               return true; // Mark for removal
+                           }
+                           return false; // Keep this object
+                       }),
+        m_tracked_objects.end());
+
+    spdlog::info("Removed {} stale objects. Tracked objects remaining: {}",
+                 initial_count - m_tracked_objects.size(), m_tracked_objects.size());
 }

@@ -8,11 +8,8 @@
 #include <pcl/point_cloud.h>
 #include <Eigen/Dense> // For Eigen::Vector3f
 #include <limits> // For std::numeric_limits
-#include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
-// #include <pcl/visualization/pcl_visualizer.h> // PCL Viewer
-// #include <pcl_conversions/pcl_conversions.h>  // For ROS to PCL conversion
-// #include <pcl/visualization/point_cloud_geometry_handlers.h>
-// #include <pcl/visualization/impl/point_cloud_geometry_handlers.hpp>
+// #include <spdlog/spdlog.h> // Ensure spdlog is included in the header for SPDLOG_FMT_EXTERNAL to work if used globally.
+
 // Define an enum for object types
 enum class ObjectType {
     UNKNOWN = 0, // Default or unclassified / non-human
@@ -55,7 +52,7 @@ class comparing_clouds {
 public:
     comparing_clouds(double max_hist_time, double assoc_dist,
                      double fall_height_change, double fall_duration,
-                     double static_dist, int min_static_frames);
+                     double static_dist, int min_static_frames, double state_threshold_time);
     ~comparing_clouds();
 
     void clearTrackedObjects();
@@ -82,6 +79,9 @@ public:
     std::vector<TrackedObject> getAllTrackedObjects() const;
     const TrackedObject* getTrackedObjectById(int object_id) const;
 
+    double getLatestTrackedObjectTimestamp() const;
+    void removeStaleTrackedObjects(double current_timestamp);
+
 private:
     std::vector<TrackedObject> m_tracked_objects;
     double m_max_history_time;
@@ -89,6 +89,7 @@ private:
     double m_min_fall_height_change;
     double m_min_fall_duration;
     double m_static_threshold_dist_sq;
+    double m_state_threshold_time;
     int m_min_static_frames;
     int m_next_object_id;
 

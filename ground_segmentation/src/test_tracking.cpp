@@ -14,14 +14,14 @@
 #include <pcl/visualization/pcl_visualizer.h> // PCL Viewer
 #include <pcl_conversions/pcl_conversions.h>  // For ROS to PCL conversion
 
-// // ROS includes for bag file reading
+// ROS includes for bag file reading
 #include <ros/ros.h>
 #include <rosbag/bag.h>
 #include <rosbag/view.h>
 #include <sensor_msgs/PointCloud2.h> // ROS PointCloud2 message type
 
 // Typedef for clarity
-// typedef pcl::PointXYZI pcl::PointXYZI;
+typedef pcl::PointXYZI PointType;
 
 // --- Main Function ---
 int main(int argc, char *argv[])
@@ -90,7 +90,8 @@ int main(int argc, char *argv[])
         0.45, // min_fall_height_change (meters) - consider fall if min_z drops by 0.45m
         15.5, // min_fall_duration (seconds) - fall must happen within 15.5s (NOTE: this is quite long for a fall. A typical fall is often <1s.)
         0.3,  // static_dist (meters) - max displacement for "static" object
-        3     // min_static_frames - how many frames to confirm static
+        3  ,   // min_static_frames - how many frames to confirm static
+        10.0 //time to move if not updated
     );
 
     // --- PCL Viewer Setup ---
@@ -117,21 +118,21 @@ int main(int argc, char *argv[])
             frame_count++;
             std::cout << "\n--- Processing Frame " << frame_count << " ---" << std::endl;
 
-            // Convert ROS PointCloud2 to PCL PointCloud<PointXYZI> pcl::PointXYZI
-            pcl::PointCloud<pcl::PointXYZI>::Ptr input_cloud_raw(new pcl::PointCloud<pcl::PointXYZI>);
+            // Convert ROS PointCloud2 to PCL PointCloud<PointXYZI> PointType
+            pcl::PointCloud<PointType>::Ptr input_cloud_raw(new pcl::PointCloud<PointType>);
             pcl::fromROSMsg(*cloud_msg, *input_cloud_raw);
 
             double current_timestamp = cloud_msg->header.stamp.toSec();
 
             // 1. Ground Segmentation
-            pcl::PointCloud<pcl::PointXYZI>::Ptr ground_cloud(new pcl::PointCloud<pcl::PointXYZI>);
-            pcl::PointCloud<pcl::PointXYZI>::Ptr non_ground_cloud(new pcl::PointCloud<pcl::PointXYZI>);
-            pcl::PointCloud<pcl::PointXYZI>::Ptr leveled_input_cloud_for_viz(new pcl::PointCloud<pcl::PointXYZI>);
+            pcl::PointCloud<PointType>::Ptr ground_cloud(new pcl::PointCloud<PointType>);
+            pcl::PointCloud<PointType>::Ptr non_ground_cloud(new pcl::PointCloud<PointType>);
+            pcl::PointCloud<PointType>::Ptr leveled_input_cloud_for_viz(new pcl::PointCloud<PointType>);
 
             ground_segmenter.segmentGround(input_cloud_raw, ground_cloud, non_ground_cloud, leveled_input_cloud_for_viz);
 
             // 2. Object Clustering on Non-Ground Points
-            std::vector<pcl::PointCloud<pcl::PointXYZI>::Ptr> clustered_objects;
+            std::vector<pcl::PointCloud<PointType>::Ptr> clustered_objects;
             clusterer.cluster(non_ground_cloud, clustered_objects);
 
             // 3. Object Tracking and Status Determination (now handled internally by comparing_clouds)
@@ -151,8 +152,8 @@ int main(int argc, char *argv[])
             // Visualize Ground (White)
             if (!ground_cloud->empty())
             {
-                pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZI> ground_color(ground_cloud, 255, 255, 255); // White
-                viewer->addPointCloud<pcl::PointXYZI>(ground_cloud, ground_color, "ground_cloud");
+                pcl::visualization::PointCloudColorHandlerCustom<PointType> ground_color(ground_cloud, 255, 255, 255); // White
+                viewer->addPointCloud<PointType>(ground_cloud, ground_color, "ground_cloud");
                 viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "ground_cloud");
             }
 
@@ -168,8 +169,8 @@ int main(int argc, char *argv[])
                 {
                     if (object_tracker.calculateCentroid(current_clustered) == tracked_obj.current_centroid)
                     {
-                        // pcl::PointCloud<pcl::PointXYZI>::Ptr object_cloud = tracked_obj.latest_cloud;
-                        
+                        // pcl::PointCloud<PointType>::Ptr object_cloud = tracked_obj.latest_cloud;
+                        // tracked_obj.history.end
                         std::string cloud_id_str = "object_" + std::to_string(tracked_obj.id);
 
                         unsigned char r = 0, g = 0, b = 0; // Default to black
@@ -208,13 +209,16 @@ int main(int argc, char *argv[])
                                      tracked_obj.current_min_z,
                                      tracked_obj.current_max_z);
 
-                        pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZI> obj_color(current_clustered, r, g, b);
-                        viewer->addPointCloud<pcl::PointXYZI>(current_clustered, obj_color, cloud_id_str);
+                        pcl::visualization::PointCloudColorHandlerCustom<PointType> obj_color(current_clustered, r, g, b);
+                        viewer->addPointCloud<PointType>(current_clustered, obj_color, cloud_id_str);
                         viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, cloud_id_str);
                     }
                 }
             }
 
+            
+            object_tracker.removeStaleTrackedObjects(current_timestamp);
+            // removeStaleTrackedObjects
             viewer->spinOnce(100);                                      // Process PCL viewer events
             std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Small delay for visualization
         }
