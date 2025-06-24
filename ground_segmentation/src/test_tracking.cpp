@@ -86,10 +86,10 @@ int main(int argc, char *argv[])
     // Adjust parameters for tracking/fall detection: max_hist_time, assoc_dist, fall_height_change, fall_duration, static_dist, min_static_frames
     comparing_clouds object_tracker(
         10.0, // max_hist_time (seconds) - keep history for 10 seconds
-        0.5,  // assoc_dist (meters) - max distance for object association between frames
+        0.3,  // assoc_dist (meters) - max distance for object association between frames
         0.45, // min_fall_height_change (meters) - consider fall if min_z drops by 0.45m
         15.5, // min_fall_duration (seconds) - fall must happen within 15.5s (NOTE: this is quite long for a fall. A typical fall is often <1s.)
-        0.3,  // static_dist (meters) - max displacement for "static" object
+        0.15,  // static_dist (meters) - max displacement for "static" object
         3  ,   // min_static_frames - how many frames to confirm static
         10.0 //time to move if not updated
     );
